@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:35 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/06 17:49:21 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/06 19:34:33 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
 		i++;
 	}
 }
 
-void    ft_putvoid(void *str)
+void	ft_putvoid(void *str)
 {
-	unsigned long int address;
-	
+	unsigned long int	address;
+
 	ft_putstr("0x");
 	address = (unsigned long int)str;
 	ft_converthexa(address);

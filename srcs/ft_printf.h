@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:02 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/06 18:40:40 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/06 19:34:14 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_putstr(char *str);
 void	ft_putvoid(void *str);
 void	ft_converthexa(long long int nb);
 void	ft_putnbr(long long int nb);
-void    ft_putunbr(unsigned long int nb);
+void	ft_putunbr(unsigned long int nb);
 void	ft_puthexalow(unsigned int nb);
-void    ft_puthexahigh(unsigned int nb);
+void	ft_puthexahigh(unsigned int nb);
 
 #endif
