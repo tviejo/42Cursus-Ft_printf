@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:35 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/06 19:34:33 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/06 23:42:11 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	ft_putvoid(void *str)
 {
 	unsigned long int	address;
 
+	if (str == NULL)
+	{
+		ft_putstr("(nil)");
+		return ;
+	}
 	ft_putstr("0x");
 	address = (unsigned long int)str;
 	ft_converthexa(address);
