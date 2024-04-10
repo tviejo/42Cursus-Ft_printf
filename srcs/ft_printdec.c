@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:38:54 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/10 11:27:50 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/10 17:01:01 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_putrecurnbr(long long int nb)
 {
-	int	i;
-	int	output;
+	int		i;
+	int		output;
 	char	toprint[12];
 
-	 if (nb == 0)
-                return (ft_putchar('0'));
+	if (nb == 0)
+		return (ft_putchar('0'));
 	i = 0;
 	output = 0;
 	if (nb < 0)
@@ -41,8 +41,8 @@ int	ft_putrecurnbr(long long int nb)
 
 int	ft_puturecurnbr(unsigned long int nb)
 {
-	int	i;
-	int	output;
+	int		i;
+	int		output;
 	char	toprint[12];
 
 	if (nb == 0)

@@ -6,33 +6,33 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:38:21 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/10 11:26:02 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/10 17:00:37 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_converthexa(long long int nb, char c)
+int	ft_converthexa(long long int nb, char c)
 {
-        int     i;
-        int     output;
-        char    toprint[12];
+	int		i;
+	int		output;
+	char	toprint[12];
 
-        i = 0;
+	i = 0;
 	if (nb == 0)
 		return (ft_putchar('0'));
-        while (nb > 0)
-        {
+	while (nb > 0)
+	{
 		if (nb % 16 <= 9)
-                        toprint[i] = nb % 16 + '0';
-                else
-                        toprint[i] = nb % 16 + c - 10;
-                nb = nb / 16;
-                i++;
-        }
-        toprint[i] = '\0';
-        output = ft_putrstr(toprint);
-        return (output);
+			toprint[i] = nb % 16 + '0';
+		else
+			toprint[i] = nb % 16 + c - 10;
+		nb = nb / 16;
+		i++;
+	}
+	toprint[i] = '\0';
+	output = ft_putrstr(toprint);
+	return (output);
 }
 
 int	ft_puthexalow(unsigned int nb)

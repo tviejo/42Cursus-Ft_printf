@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:36:32 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/10 10:01:01 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/10 16:57:11 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static int	ft_convert(char c, va_list args)
 {
 	int	i;
 
-	i = - 1;
+	i = -1;
 	if (c == 'c')
 		i = ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		i= ft_putstr(va_arg(args, char *));
+		i = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
 		i = ft_putvoid(va_arg(args, void *));
 	else if (c == 'd')
@@ -54,7 +54,7 @@ int	ft_printf(const char *str, ...)
 			return (-1);
 		i++;
 		converted = ft_convert(str[i], args);
-		nb_byte =+ converted;
+		nb_byte = nb_byte + converted;
 		if (converted == 0)
 			return (0);
 		i++;
