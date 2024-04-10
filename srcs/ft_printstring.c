@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:35 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/06 23:42:11 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/10 11:21:56 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_putchar(int c)
+int	ft_putchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
 
@@ -31,18 +32,33 @@ void	ft_putstr(char *str)
 		write(1, &str[i], 1);
 		i++;
 	}
+	return (i);
 }
 
-void	ft_putvoid(void *str)
+int	ft_putrstr(char *str)
+{
+	int	i;
+	int	output;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	output = i;
+	while (i >= 0)
+	{
+		ft_putchar(str[i]);
+		i--;
+	}
+	return (output);
+}
+
+int	ft_putvoid(void *str)
 {
 	unsigned long int	address;
 
 	if (str == NULL)
-	{
-		ft_putstr("(nil)");
-		return ;
-	}
+		return (ft_putstr("(nil)"));
 	ft_putstr("0x");
 	address = (unsigned long int)str;
-	ft_converthexa(address);
+	return (2 + ft_converthexa(address, 'a'));
 }

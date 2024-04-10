@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:36:32 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/06 23:30:29 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/04/10 10:01:01 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 static int	ft_convert(char c, va_list args)
 {
+	int	i;
+
+	i = - 1;
 	if (c == 'c')
-		ft_putchar(va_arg(args, int));
+		i = ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		ft_putstr(va_arg(args, char *));
+		i= ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		ft_putvoid(va_arg(args, void *));
+		i = ft_putvoid(va_arg(args, void *));
 	else if (c == 'd')
-		ft_putnbr(va_arg(args, int));
+		i = ft_putrecurnbr(va_arg(args, int));
 	else if (c == 'i')
-		ft_putnbr(va_arg(args, int));
+		i = ft_putrecurnbr(va_arg(args, int));
 	else if (c == 'u')
-		ft_putunbr(va_arg(args, unsigned int));
+		i = ft_puturecurnbr(va_arg(args, unsigned int));
 	else if (c == 'x')
-		ft_puthexalow(va_arg(args, unsigned int));
+		i = ft_puthexalow(va_arg(args, unsigned int));
 	else if (c == 'X')
-		ft_puthexahigh(va_arg(args, unsigned int));
+		i = ft_puthexahigh(va_arg(args, unsigned int));
 	else if (c == '%')
-		ft_putchar('%');
-	else
-		return (0);
-	return (1);
+		i = ft_putchar('%');
+	return (i);
 }
 
 int	ft_printf(const char *str, ...)
@@ -42,20 +43,23 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 	int		converted;
+	int		nb_byte;
 
 	va_start(args, str);
 	i = 0;
+	nb_byte = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] != '%')
 			return (-1);
 		i++;
 		converted = ft_convert(str[i], args);
+		nb_byte =+ converted;
 		if (converted == 0)
 			return (0);
 		i++;
 	}
-	return (0);
+	return (nb_byte);
 }
 /*
 #include <stdio.h>
