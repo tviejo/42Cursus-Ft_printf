@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:36:32 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/10 16:57:11 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/05/23 22:07:48 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ static int	ft_convert(char c, va_list args)
 		i = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
 		i = ft_putvoid(va_arg(args, void *));
-	else if (c == 'd')
-		i = ft_putrecurnbr(va_arg(args, int));
-	else if (c == 'i')
+	else if (c == 'd' || c == 'i')
 		i = ft_putrecurnbr(va_arg(args, int));
 	else if (c == 'u')
 		i = ft_puturecurnbr(va_arg(args, unsigned int));
@@ -46,20 +44,25 @@ int	ft_printf(const char *str, ...)
 	int		nb_byte;
 
 	va_start(args, str);
-	i = 0;
+	i = -1;
 	nb_byte = 0;
-	while (str[i] != '\0')
+	while (str[++i] != '\0')
 	{
-		if (str[i] != '%')
-			return (-1);
-		i++;
-		converted = ft_convert(str[i], args);
-		nb_byte = nb_byte + converted;
-		if (converted == 0)
-			return (0);
-		i++;
+		if (str[i] == '%')
+		{
+			i++;
+			converted = ft_convert(str[i], args);
+			nb_byte = nb_byte + converted;
+			if (converted == -1)
+				return (va_end(args), -1);
+		}
+		else
+		{
+			ft_putchar(str[i]);
+			nb_byte++;
+		}
 	}
-	return (nb_byte);
+	return (va_end(args), nb_byte);
 }
 /*
 #include <stdio.h>
@@ -69,7 +72,7 @@ int     main(void)
 
         ptr = "a";
         
-//        ft_printf("%s%c%p%d%i%u%x%X%%","qwerty",'a',ptr,-51,-99,-666,15,-15);
+        ft_printf("%s%c%p%d%i%u%x%X%%","qwerty",'a',ptr,-51,-99,-666,15,-15);
 
 	printf("\n\nteststr:\n");
         ft_printf("%s","qwerty");
@@ -105,5 +108,4 @@ int     main(void)
 	printf("\n");
         ft_printf("%i",-2147483647);
         printf("\n%i",-2147483647);
-}
-*/
+}*/

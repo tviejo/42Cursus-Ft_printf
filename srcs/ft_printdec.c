@@ -6,13 +6,13 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:38:54 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/10 17:01:01 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/05/23 21:54:58 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putrecurnbr(long long int nb)
+int	ft_putrecurnbr(int nb)
 {
 	int		i;
 	int		output;
@@ -22,6 +22,8 @@ int	ft_putrecurnbr(long long int nb)
 		return (ft_putchar('0'));
 	i = 0;
 	output = 0;
+	if (nb == INT_MIN)
+		return (ft_putstr("-2147483648"));
 	if (nb < 0)
 	{
 		ft_putchar('-');
@@ -39,7 +41,7 @@ int	ft_putrecurnbr(long long int nb)
 	return (output);
 }
 
-int	ft_puturecurnbr(unsigned long int nb)
+int	ft_puturecurnbr(unsigned int nb)
 {
 	int		i;
 	int		output;

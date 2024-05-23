@@ -6,13 +6,13 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:38:21 by tviejo            #+#    #+#             */
-/*   Updated: 2024/04/10 17:00:37 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/05/23 21:13:39 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_converthexa(long long int nb, char c)
+int	ft_converthexa(unsigned long nb, char c)
 {
 	int		i;
 	int		output;
@@ -35,12 +35,12 @@ int	ft_converthexa(long long int nb, char c)
 	return (output);
 }
 
-int	ft_puthexalow(unsigned int nb)
+int	ft_puthexalow(unsigned long nb)
 {
 	return (ft_converthexa(nb, 'a'));
 }
 
-int	ft_puthexahigh(unsigned int nb)
+int	ft_puthexahigh(unsigned long nb)
 {
 	return (ft_converthexa(nb, 'A'));
 }

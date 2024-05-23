@@ -6,7 +6,7 @@
 #    By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/26 18:53:05 by tviejo            #+#    #+#              #
-#    Updated: 2024/04/06 23:54:33 by tviejo           ###   ########.fr        #
+#    Updated: 2024/05/23 20:06:48 by tviejo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,12 @@ CC		=	cc
 
 CFLAGS		=	-Wall -Wextra -Werror -c
 
-AR		=	ar rc
+AR		=	ar rcs
 
 RM		=	rm -f
 
 .c.o:
-			$(CC) $(CFLAGS) $< -o $@ $(INCLUDES)
+			$(CC) -c $(CFLAGS) $< -o $@ $(INCLUDES)
 
 ${NAME}:		${OBJS}
 				${AR} ${NAME} ${OBJS}
