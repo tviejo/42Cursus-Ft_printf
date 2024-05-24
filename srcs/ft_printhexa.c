@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:38:21 by tviejo            #+#    #+#             */
-/*   Updated: 2024/05/23 21:13:39 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/05/24 20:07:06 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_converthexa(unsigned long nb, char c)
 {
 	int		i;
 	int		output;
-	char	toprint[12];
+	char	toprint[17];
 
 	i = 0;
 	if (nb == 0)

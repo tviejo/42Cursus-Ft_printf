@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:36:32 by tviejo            #+#    #+#             */
-/*   Updated: 2024/05/23 22:07:48 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/05/24 20:32:32 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_printf(const char *str, ...)
 	int		converted;
 	int		nb_byte;
 
+	if (str == NULL)
+		return (-1);
 	va_start(args, str);
 	i = -1;
 	nb_byte = 0;
@@ -52,15 +54,12 @@ int	ft_printf(const char *str, ...)
 		{
 			i++;
 			converted = ft_convert(str[i], args);
-			nb_byte = nb_byte + converted;
+			nb_byte += converted;
 			if (converted == -1)
 				return (va_end(args), -1);
 		}
 		else
-		{
-			ft_putchar(str[i]);
-			nb_byte++;
-		}
+			nb_byte += ft_putchar(str[i]);
 	}
 	return (va_end(args), nb_byte);
 }
